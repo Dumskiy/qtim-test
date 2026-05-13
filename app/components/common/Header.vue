@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header container">
     <NuxtLink to="/" class="logo">
       <Icon name="logo-qtim" :width="84" :height="25" />
     </NuxtLink>

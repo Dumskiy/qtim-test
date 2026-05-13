@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div>
     <CommonHeader />
     <main>
       <slot />
@@ -12,10 +12,3 @@
 <script setup>
 import sprite from '~/assets/icons/sprite.svg?raw'
 </script>
-
-<style scoped>
-.main-container {
-  margin: 0 auto;
-  max-width: 144rem;
-}
-</style>
