@@ -1,0 +1,53 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; /* 10px */
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-dark-primary);
+  background-color: var(--color-white);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  /* line-height: 1.2; */
+  /* letter-spacing: -0.04em; */
+  /* color: var(--dark-primary); */
+}
+
+:where(p) {
+  margin: 0;
+}
+
+:where(img) {
+  display: block;
+}
+
+:where(a) {
+  text-decoration: none;
+  color: inherit;
+}
+
+:where(button:hover) {
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}

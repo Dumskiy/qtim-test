@@ -1,0 +1,16 @@
+:root {
+  /* FONTS */
+  --font-primary: 'TT Commons', 'Inter', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  --base-font-size: 16;
+
+  /* COLORS */
+  --color-white: #FFFFFF;
+  --color-green: #9EFFBF;
+  --color-blue: #1059C8;
+  --color-dark-primary: #101010;
+  --color-dark-secondary: #232323;
+  --color-gray-primary: #868686;
+  --color-gray-secondary: #F3F3F3;
+  --color-purple-primary: #E2BEFF;
+  --color-purple-secondary: #7941A7;
+}
