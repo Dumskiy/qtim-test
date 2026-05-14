@@ -7,10 +7,10 @@
     <nav class="header__navigation navigation">
       <ul class="navigation__list">
         <li>
-          <NuxtLink to="/works" class="navigation__link">Works</NuxtLink>
+          <NuxtLink to="/" class="navigation__link">Works</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about" class="navigation__link">About</NuxtLink>
+          <NuxtLink to="/" class="navigation__link">About</NuxtLink>
         </li>
       </ul>
     </nav>
