@@ -3,7 +3,9 @@
     <div class="container">
       <Loader v-if="loading" />
 
-      <article v-if="post">
+      <ErrorMessage  v-else-if="error" :message="error" />
+
+      <article v-else-if="post">
         <h1 class="title">{{ post.title }}</h1>
 
         <div class="image">
@@ -31,6 +33,7 @@ const { fetchPostById } = usePosts()
 const route = useRoute()
 const post = ref<Post | null>(null)
 const loading = ref(true)
+const error = ref<string | null>(null)
 
 const loadPost = async () => {
   const id = route.params.id as string
@@ -39,8 +42,9 @@ const loadPost = async () => {
   loading.value = true
   try {
     post.value = await fetchPostById(id)
-  } catch (error) {
-    console.error('Failed to load post:', error)
+  } catch (err) {
+    console.error('Failed to load post:', err)
+    error.value = 'Failed to load post'
     post.value = null
   } finally {
     loading.value = false
