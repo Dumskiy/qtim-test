@@ -1,6 +1,10 @@
 # QTIM — Тестовое задание (Frontend)
 
 Тестовое задание для QTIM.
+```txt
+https://dmsk-qtim-test.netlify.app/
+```
+Netlify работает корректно только с включённым VPN.
 
 ## Макет
 ```txt
