@@ -3,7 +3,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: false,
+  },
 
   typescript: {
     strict: true,
@@ -12,8 +14,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'QTIM',
-      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-    }
+      htmlAttrs: {
+        lang: 'en',
+      },
+      meta: [
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+        },
+      ],
+    },
   },
 
   components: [

@@ -3,7 +3,7 @@
     <div class="container">
       <Loader v-if="loading" />
 
-      <ErrorMessage  v-else-if="error" :message="error" />
+      <ErrorMessage v-else-if="error" message="Failed to load post" />
 
       <article v-else-if="post">
         <h1 class="title">{{ post.title }}</h1>
@@ -29,31 +29,24 @@
 <script setup lang="ts">
 import type { Post } from '~/types/post'
 
-const { fetchPostById } = usePosts()
 const route = useRoute()
-const post = ref<Post | null>(null)
-const loading = ref(true)
-const error = ref<string | null>(null)
+const { fetchPostById } = usePosts()
+const postId = computed(() => route.params.id as string)
 
-const loadPost = async () => {
-  const id = route.params.id as string
-  if (!id) return
-  
-  loading.value = true
-  try {
-    post.value = await fetchPostById(id)
-  } catch (err) {
-    console.error('Failed to load post:', err)
-    error.value = 'Failed to load post'
-    post.value = null
-  } finally {
-    loading.value = false
+const {
+  data: post,
+  pending: loading,
+  error
+} = await useAsyncData<Post | null>(
+  () => `post-${postId.value}`,
+  async () => {
+    if (!postId.value) {
+      return null
+    }
+
+    return await fetchPostById(postId.value)
   }
-}
-
-onMounted(() => {
-  loadPost()
-})
+)
 </script>
 
 <style scoped>

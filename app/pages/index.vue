@@ -5,7 +5,7 @@
 
       <Loader v-if="loading" />
 
-      <ErrorMessage  v-else-if="error" :message="error" />
+      <ErrorMessage  v-else-if="error" message="Failed to load posts" />
 
       <div v-else>
         <PostsGrid :posts="posts" />
@@ -26,14 +26,9 @@ import type { Post } from '~/types/post'
 const route = useRoute()
 const router = useRouter()
 const { fetchPosts } = usePosts()
+const currentPage = ref(getPageFromQuery())
 
-const posts = ref<Post[]>([])
-const loading = ref(true)
-const error = ref<string | null>(null)
-const currentPage = ref(1)
-const totalPages = ref(1)
-
-const getPageFromQuery = (): number => {
+function getPageFromQuery(): number {
   const page = Number(route.query.page)
   if (!isNaN(page) && page >= 1) {
     return page
@@ -48,29 +43,31 @@ const updateUrlPage = (page: number) => {
   })
 }
 
-const loadPosts = async () => {
-  loading.value = true
-  error.value = null
-
-  try {
+const {
+  data,
+  pending: loading,
+  error
+} = await useAsyncData(
+  () => `posts-page-${currentPage.value}`,
+  async () => {
     const response = await fetchPosts(currentPage.value, 8)
 
-    posts.value = response.data
-    totalPages.value = response.totalPages
+    if (currentPage.value > response.totalPages) {
+      currentPage.value = response.totalPages
+      updateUrlPage(response.totalPages)
 
-    if (currentPage.value > totalPages.value) {
-      currentPage.value = totalPages.value
-      updateUrlPage(totalPages.value)
-
-      return
+      return await fetchPosts(response.totalPages, 8)
     }
-  } catch (err) {
-    console.error('Load error:', err)
-    error.value = 'Failed to load posts'
-  } finally {
-    loading.value = false
+
+    return response
+  },
+  {
+    watch: [currentPage]
   }
-}
+)
+
+const posts = computed<Post[]>(() => data.value?.data || [])
+const totalPages = computed(() => data.value?.totalPages || 1)
 
 const handlePageChange = async (page: number) => {
   if (page < 1 || page > totalPages.value) {
@@ -79,28 +76,12 @@ const handlePageChange = async (page: number) => {
 
   currentPage.value = page
   updateUrlPage(page)
-
-  await loadPosts()
 }
-
-onMounted(async () => {
-  currentPage.value = getPageFromQuery()
-
-  await loadPosts()
-})
 
 watch(
   () => route.query.page,
-  async () => {
-    const page = getPageFromQuery()
-
-    if (page === currentPage.value) {
-      return
-    }
-
-    currentPage.value = page
-
-    await loadPosts()
+  () => {
+    currentPage.value = getPageFromQuery()
   }
 )
 </script>
