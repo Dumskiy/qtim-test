@@ -49,6 +49,7 @@ const props = defineProps<{
 }
 
 .link {
+  display: block;
   padding: 0;
   font-size: 2rem;
   line-height: 1.2;
@@ -57,10 +58,6 @@ const props = defineProps<{
   border: none;
   transform: translateY(100%);
   transition: all 0.3s ease-in-out;
-}
-
-.link.visible {
-  transform: translateY(0);
 }
 
 .card:hover,
