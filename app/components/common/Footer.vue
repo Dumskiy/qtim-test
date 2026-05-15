@@ -10,22 +10,22 @@
         </div>
   
         <ul class="contacts">
-          <li class="contacts__item">
+          <li class="contacts-item">
             <p>For all questions</p>
             <a href="tel:+79202780068">+7 (920) 278—00—68</a>
             <a href="mailto:qtim@agency.com">qtim@agency.com</a>
           </li>
-          <li class="contacts__item">
+          <li class="contacts-item">
             <p>Office in Russia</p>
             <address>139 Ruben Station Lake Drew,<br>NM 52678</address>
-            <a class="contacts__location" href="https://maps.app.goo.gl/KsZZQy5zz98FvjDF9" target="_blank" rel="noopener noreferrer">
+            <a class="contacts-location" href="https://maps.app.goo.gl/KsZZQy5zz98FvjDF9" target="_blank" rel="noopener noreferrer">
               <Icon name="location" :size="12" />
             </a>
           </li>
-          <li class="contacts__item">
+          <li class="contacts-item">
             <p>Office in Dubai</p>
             <address>139 Ruben Station Lake Drew,<br>NM 52678</address>
-            <a class="contacts__location" href="https://maps.app.goo.gl/KsZZQy5zz98FvjDF9" target="_blank" rel="noopener noreferrer">
+            <a class="contacts-location" href="https://maps.app.goo.gl/KsZZQy5zz98FvjDF9" target="_blank" rel="noopener noreferrer">
               <Icon name="location" :size="12" />
             </a>
           </li>
@@ -33,23 +33,23 @@
       </div>
 
       <ul class="socials">
-        <li class="socials__item">
-          <a class="socials__link" href="" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <li class="socials-item">
+          <a class="socials-link" href="" target="_blank" rel="noopener noreferrer">Facebook</a>
         </li>
-        <li class="socials__item">
-          <a class="socials__link" href="" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <li class="socials-item">
+          <a class="socials-link" href="" target="_blank" rel="noopener noreferrer">Instagram</a>
         </li>
-        <li class="socials__item">
-          <a class="socials__link" href="" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <li class="socials-item">
+          <a class="socials-link" href="" target="_blank" rel="noopener noreferrer">Telegram</a>
         </li>
-        <li class="socials__item">
-          <a class="socials__link" href="" target="_blank" rel="noopener noreferrer">Behance</a>
+        <li class="socials-item">
+          <a class="socials-link" href="" target="_blank" rel="noopener noreferrer">Behance</a>
         </li>
-        <li class="socials__item">
-          <a class="socials__link" href="" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <li class="socials-item">
+          <a class="socials-link" href="" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </li>
-        <li class="socials__item">
-          <a class="socials__link" href="" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <li class="socials-item">
+          <a class="socials-link" href="" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         </li>
       </ul>
 
@@ -106,27 +106,27 @@
   letter-spacing: 0.01em;
 }
 
-.contacts__item + .contacts__item {
+.contacts-item + .contacts-item {
   margin-top: 3.6rem;
 }
 
-.contacts__item > * {
+.contacts-item > * {
   display: block;
 }
 
-.contacts__item > p {
+.contacts-item > p {
   margin-bottom: 1.2rem;
 }
 
-.contacts__item > a + a {
+.contacts-item > a + a {
   margin-top: 0.4rem;
 }
 
-.contacts__item > address {
+.contacts-item > address {
   font-style: normal;;
 }
 
-.contacts__location {
+.contacts-location {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,15 +144,15 @@
   padding: 0;
 }
 
-.socials__item + .socials__item {
+.socials-item + .socials-item {
   margin-left: 3.2rem;
 }
 
-.socials__item:nth-child(3) {
+.socials-item:nth-child(3) {
   margin-right: auto;
 }
 
-.socials__item .socials__link {
+.socials-item .socials-link {
   letter-spacing: 0.01em;
   text-decoration: underline;
   text-decoration-thickness: 0.1rem;

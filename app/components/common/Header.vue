@@ -4,13 +4,13 @@
       <Icon name="logo-qtim" :width="84" :height="25" />
     </NuxtLink>
 
-    <nav class="header__navigation navigation">
-      <ul class="navigation__list">
+    <nav class="header-navigation navigation">
+      <ul class="navigation-list">
         <li>
-          <NuxtLink to="/" class="navigation__link">Works</NuxtLink>
+          <NuxtLink to="/" class="navigation-link">Works</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/" class="navigation__link">About</NuxtLink>
+          <NuxtLink to="/" class="navigation-link">About</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -32,7 +32,7 @@
   padding: 3.5rem 4rem;
 }
 
-.header__navigation {
+.header-navigation {
   margin-left: auto;
   margin-right: 8.7rem;
 }
@@ -42,13 +42,13 @@
   line-height: 1;
 }
 
-.navigation__list {
+.navigation-list {
   display: flex;
   column-gap: 5rem;
   margin: 0;
 }
 
-.navigation__link {
+.navigation-link {
   display: block;
   padding: 0.4rem;
 }

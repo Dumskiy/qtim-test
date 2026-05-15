@@ -1,10 +1,10 @@
 <template>
   <div>
-    <CommonHeader />
+    <Header />
     <main>
       <slot />
     </main>
-    <CommonFooter />
+    <Footer />
     <div v-html="sprite" style="display: none;" />
   </div>
 </template>
