@@ -1,75 +1,80 @@
-# Nuxt Minimal Starter
+# QTIM — Тестовое задание (Frontend)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Тестовое задание для QTIM.
 
-## Setup
+## Макет
+```txt
+https://www.figma.com/design/YuLYXnZmLk1U5sKAYjQ0Qy/QTIM-%E2%80%94-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=1-208&t=MkBOy6OzQAgId6a2-4
+```
 
-Make sure to install dependencies:
+## Стек
+
+- Nuxt 4
+- TypeScript
+
+## Реализовано
+
+- Список статей
+- Пагинация
+- Детальная страница статьи
+- Интеграция с API
+
+## API
+
+Mock API:
+
+```txt
+https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/
+```
+
+## Важно
+
+API работает корректно только с включённым VPN.
+
+Перед запуском проекта необходимо включить VPN.
+
+## Установка зависимостей
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Запуск проекта
 
-Start the development server on `http://localhost:3000`:
+Запускать проект необходимо командой:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+npm run dev -- --host
 ```
 
-## Production
+## Открытие проекта в браузере
 
-Build the application for production:
+После запуска проект нужно открывать по адресу:
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```txt
+http://192.168.31.20:3000/
 ```
 
-Locally preview production build:
+Не через:
 
-```bash
-# npm
-npm run preview
+```txt
+http://localhost:3000/
+```
+С включённым VPN localhost не открывается без дополнительных настроек.
 
-# pnpm
-pnpm preview
 
-# yarn
-yarn preview
+## Структура проекта
 
-# bun
-bun run preview
+```txt
+components/     Переиспользуемые UI-компоненты
+composables/    Логика работы с API
+pages/          Страницы приложения
+types/          TypeScript типы
+assets/         Стили и статические ресурсы
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Дополнительно
+
+- Состояние пагинации синхронизировано с query-параметрами URL
+- Реализованы состояния загрузки и ошибок
+- Используются composables для работы с данными
